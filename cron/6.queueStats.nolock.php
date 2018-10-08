@@ -11,7 +11,6 @@ if ($redis->get("tobefetched") < 1000) $redis->del("zkb:statsStop");
 if ($redis->get("zkb:statsStop") == "true") exit();
 
 if ($redis->get("zkb:reinforced") == true) exit();
-MongoCursor::$timeout = -1;
 $queueStats = new RedisQueue('queueStats');
 
 $minute = date('Hi');

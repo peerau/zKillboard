@@ -10,7 +10,9 @@ $raw = file_get_contents("https://esi.evetech.net/latest/universe/factions/");
 $json = json_decode($raw, true);
 
 foreach ($json as $faction) {
-    $mdb->insertUpdate("information", ['type' => 'factionID', 'id' => (int) $faction['faction_id']], ['name' => $faction['name']]);
+	if (!$mdb->exists("information", ['type' => 'factionID', 'id' => (int) $faction['faction_id']])) {
+		$mdb->insert("information", ['type' => 'factionID', 'id' => (int) $faction['faction_id'], 'name' => $faction['name']]);
+	}
 }
 
 $redis->setex($rkey, 86400, "true");

@@ -30,6 +30,6 @@ $redis->set('zkb:supers', serialize(Stats::getTop('characterID', $parameters)));
 
 // Cleanup old tickets > 3 months old
 $time = time() - (86400 * 90);
-$mdb->getCollection('tickets')->remove(['dttm' => ['$lte' => $time]]);
+$mdb->getCollection('tickets')->deleteMany(['dttm' => ['$lte' => $time]]);
 
 $redis->setex($key, 3600, 1);

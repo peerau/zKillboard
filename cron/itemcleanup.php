@@ -4,8 +4,6 @@ require_once "../init.php";
 
 if (date('Hi') != "1100") exit();
 
-MongoCursor::$timeout = -1;
-
 $typeIDs = $mdb->getCollection("itemmails")->distinct("typeID");
 $total = sizeof($typeIDs);
 $current = 0;

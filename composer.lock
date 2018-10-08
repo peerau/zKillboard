@@ -1,71 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ca0555d8242668d7dbfac78ff8edf7ab",
+    "content-hash": "a66fdcf436684593f673f6a96037e622",
     "packages": [
         {
-            "name": "3rdpartyeve/phealng",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/3rdpartyeve/phealng.git",
-                "reference": "22f92674c0bf5272d559cd54a49bd09d3af2f015"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/3rdpartyeve/phealng/zipball/22f92674c0bf5272d559cd54a49bd09d3af2f015",
-                "reference": "22f92674c0bf5272d559cd54a49bd09d3af2f015",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Pheal\\": "lib/Pheal/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Peter Petermann",
-                    "email": "ppetermann80@googlemail.com",
-                    "homepage": "http://devedge.eu"
-                },
-                {
-                    "name": "Wollari",
-                    "homepage": "http://evemaps.dotlan.net/"
-                }
-            ],
-            "description": "PHP Eve Api Library, a simple PHP lib to access the EVE Online API",
-            "homepage": "https://github.com/3rdpartyeve/phealng",
-            "keywords": [
-                "EVE API",
-                "EVE Online",
-                "Pheal",
-                "PhealNG"
-            ],
-            "time": "2014-11-21T09:42:47+00:00"
-        },
-        {
             "name": "cvweiss/redistools",
-            "version": "v0.0.4",
+            "version": "v0.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvweiss/redistools.git",
-                "reference": "f8985b5c7a30a92dcee5fed44d79333f3c0d3b38"
+                "reference": "ff3399d7263ff17a59d9cce0fb4934553cd55be5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvweiss/redistools/zipball/f8985b5c7a30a92dcee5fed44d79333f3c0d3b38",
-                "reference": "f8985b5c7a30a92dcee5fed44d79333f3c0d3b38",
+                "url": "https://api.github.com/repos/cvweiss/redistools/zipball/ff3399d7263ff17a59d9cce0fb4934553cd55be5",
+                "reference": "ff3399d7263ff17a59d9cce0fb4934553cd55be5",
                 "shasum": ""
             },
             "type": "library",
@@ -84,20 +36,20 @@
                     "email": "cvweiss@gmail.com"
                 }
             ],
-            "time": "2018-03-03T15:53:37+00:00"
+            "time": "2018-05-17T13:02:51+00:00"
         },
         {
             "name": "cvweiss/zcache",
-            "version": "v0.1.4",
+            "version": "v0.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cvweiss/zcache.git",
-                "reference": "1ca8a0007ad335d18357e15d8b7e10695ad165fc"
+                "reference": "f59dc70bd70e8eb4388d8ab6d3e1450a6bfbfacb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cvweiss/zcache/zipball/1ca8a0007ad335d18357e15d8b7e10695ad165fc",
-                "reference": "1ca8a0007ad335d18357e15d8b7e10695ad165fc",
+                "url": "https://api.github.com/repos/cvweiss/zcache/zipball/f59dc70bd70e8eb4388d8ab6d3e1450a6bfbfacb",
+                "reference": "f59dc70bd70e8eb4388d8ab6d3e1450a6bfbfacb",
                 "shasum": ""
             },
             "type": "library",
@@ -117,7 +69,7 @@
                 }
             ],
             "description": "Library of classes to simplify caching",
-            "time": "2018-03-03T16:38:02+00:00"
+            "time": "2018-05-15T22:01:27+00:00"
         },
         {
             "name": "cvweiss/zlibrary",
@@ -199,20 +151,19 @@
         },
         {
             "name": "erusev/parsedown",
-            "version": "1.7.1",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "92e9c27ba0e74b8b028b111d1b6f956a15c01fc1"
+                "reference": "6678d59be48c4be64eaca6ce70bea48a09488cc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/92e9c27ba0e74b8b028b111d1b6f956a15c01fc1",
-                "reference": "92e9c27ba0e74b8b028b111d1b6f956a15c01fc1",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/6678d59be48c4be64eaca6ce70bea48a09488cc2",
+                "reference": "6678d59be48c4be64eaca6ce70bea48a09488cc2",
                 "shasum": ""
             },
             "require": {
-                "ext-mbstring": "*",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -241,7 +192,7 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2018-03-08T01:11:30+00:00"
+            "time": "2018-02-28T11:41:37+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -526,6 +477,71 @@
             "time": "2015-03-20T14:31:23+00:00"
         },
         {
+            "name": "mongodb/mongodb",
+            "version": "1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mongodb/mongo-php-library.git",
+                "reference": "bd148eab0493e38354e45e2cd7db59b90fdcad79"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/bd148eab0493e38354e45e2cd7db59b90fdcad79",
+                "reference": "bd148eab0493e38354e45e2cd7db59b90fdcad79",
+                "shasum": ""
+            },
+            "require": {
+                "ext-hash": "*",
+                "ext-json": "*",
+                "ext-mongodb": "^1.5.0",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.36 || ^6.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MongoDB\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Mikola",
+                    "email": "jmikola@gmail.com"
+                },
+                {
+                    "name": "Derick Rethans",
+                    "email": "github@derickrethans.nl"
+                },
+                {
+                    "name": "Katherine Walker",
+                    "email": "katherine.walker@mongodb.com"
+                }
+            ],
+            "description": "MongoDB driver library",
+            "homepage": "https://jira.mongodb.org/browse/PHPLIB",
+            "keywords": [
+                "database",
+                "driver",
+                "mongodb",
+                "persistence"
+            ],
+            "time": "2018-07-18T14:33:41+00:00"
+        },
+        {
             "name": "psr/http-message",
             "version": "1.0.1",
             "source": {
@@ -676,21 +692,80 @@
             "time": "2014-12-09T23:48:51+00:00"
         },
         {
-            "name": "twig/twig",
-            "version": "v1.35.3",
+            "name": "symfony/polyfill-ctype",
+            "version": "v1.9.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twigphp/Twig.git",
-                "reference": "b48680b6eb7d16b5025b9bfc4108d86f6b8af86f"
+                "url": "https://github.com/symfony/polyfill-ctype.git",
+                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/b48680b6eb7d16b5025b9bfc4108d86f6b8af86f",
-                "reference": "b48680b6eb7d16b5025b9bfc4108d86f6b8af86f",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e3d826245268269cd66f8326bd8bc066687b4a19",
+                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-ctype": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Ctype\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                },
+                {
+                    "name": "Gert de Pagter",
+                    "email": "BackEndTea@gmail.com"
+                }
+            ],
+            "description": "Symfony polyfill for ctype functions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "ctype",
+                "polyfill",
+                "portable"
+            ],
+            "time": "2018-08-06T14:22:27+00:00"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v1.35.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "7e081e98378a1e78c29cc9eba4aefa5d78a05d2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/7e081e98378a1e78c29cc9eba4aefa5d78a05d2a",
+                "reference": "7e081e98378a1e78c29cc9eba4aefa5d78a05d2a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/polyfill-ctype": "^1.8"
             },
             "require-dev": {
                 "psr/container": "^1.0",
@@ -729,16 +804,16 @@
                 },
                 {
                     "name": "Twig Team",
-                    "homepage": "http://twig.sensiolabs.org/contributors",
+                    "homepage": "https://twig.symfony.com/contributors",
                     "role": "Contributors"
                 }
             ],
             "description": "Twig, the flexible, fast, and secure template language for PHP",
-            "homepage": "http://twig.sensiolabs.org",
+            "homepage": "https://twig.symfony.com",
             "keywords": [
                 "templating"
             ],
-            "time": "2018-03-20T04:25:58+00:00"
+            "time": "2018-07-13T07:12:17+00:00"
         },
         {
             "name": "zkillboard/redisq",

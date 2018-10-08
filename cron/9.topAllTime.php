@@ -8,7 +8,6 @@ if ($redis->get("tobefetched") > 1000) exit();
 if ($redis->get("zkb:reinforced") == true) exit();
 if ($redis->scard("queueStatsSet") > 1000) exit();
 
-MongoCursor::$timeout = -1;
 $minute = date('Hi');
 $redisKey = "tq:topAllTime";
 $queueTopAlltime = new RedisQueue('queueTopAlltime');
@@ -16,8 +15,8 @@ if ($redis->get($redisKey) === false) {
     $redis->del('queueTopAlltime');
 }
 if ($redis->get($redisKey) != "true" && $queueTopAlltime->size() == 0) {
-    $iter = $mdb->getCollection('statistics')->find(['calcAlltime' => true])->sort(['shipsDestroyed' => 1]);
-    while ($row = $iter->next()) {
+    $iter = $mdb->getCollection('statistics')->find(['calcAlltime' => true], ['sort' => ['shipsDestroyed' => 1]]);
+    foreach ($iter as $row) {
         if (@$row['reset'] == true) continue;
         $queueTopAlltime->push($row['_id']);
     }

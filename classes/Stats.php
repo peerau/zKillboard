@@ -101,7 +101,6 @@ class Stats
 
         $result = $killmails->aggregateCursor($pipeline, ['cursor' => ['batchSize' => 999999]]);
         $result->timeout(3600000);
-        MongoCursor::$timeout = -1; // this is annoying
         $result = iterator_to_array($result);
 
         $time = $timer->stop();

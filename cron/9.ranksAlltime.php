@@ -2,8 +2,6 @@
 
 require_once '../init.php';
 
-MongoCursor::$timeout = -1;
-
 $today = date('Ymd', time() - (3600 * 4));
 
 //$types = array_values($mdb->getCollection("information")->distinct("type"));
@@ -37,7 +35,6 @@ $information = $mdb->getCollection('statistics');
 
 Util::out("Alltime ranks - first iteration $type");
 $iter = $information->find(['type' => $type]);
-$iter->timeout(0);
 foreach ($iter as $row) {
     $id = $row['id'];
 

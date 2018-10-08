@@ -11,7 +11,7 @@ Util::out("Populating dayDumps");
 $changed = 0;
 $curDay = null;
 $curDayRow = null;
-$cursor = $mdb->getCollection("killmails")->find([], ['dttm' => 1, 'killID' => 1, 'zkb.hash' => 1, '_id' => 0])->sort(['killID' => 1]);
+$cursor = $mdb->getCollection("killmails")->find([], ['dttm' => 1, 'killID' => 1, 'zkb.hash' => 1, '_id' => 0, 'sort' => ['killID' => 1]]);
 foreach ($cursor as $row) {
     $time = $row['dttm']->sec;
     $time = $time - ($time % 86400);

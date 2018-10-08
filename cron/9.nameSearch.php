@@ -11,8 +11,7 @@ if ($redis->get($key) == true) {
     exit();
 }
 
-$entities = $mdb->getCollection('information')->find()->sort(['type' => 1]);
-$entities->timeout(0);
+$entities = $mdb->getCollection('information')->find([], ['sort' => ['type' => 1]]);
 
 $toMove = [];
 
