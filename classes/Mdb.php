@@ -42,7 +42,7 @@ class Mdb
 	/*
 	   Return the specified collection from the mongodb
 	 */
-	public function getCollection($collection)
+	protected function getCollection($collection)
 	{
 		$db = $this->getDb();
 
@@ -337,7 +337,10 @@ class Mdb
 		$mdb = new self();
 		$collection = $mdb->getCollection($collection);
 		// Execute the query
+print_r($pipeline);
 		$result = $collection->aggregate($pipeline);
+		$result = $result->toArray();
+print_r($result);
 
 		foreach ($result as $row) {
 print_r($row);

@@ -31,7 +31,7 @@ foreach ($noCorp as $row) {
 
 
 $mdb->set("scopes", ['scope' => "esi-killmails.read_corporation_killmails.v1", 'lastFetch' => ['$exists' => false]], ['lastFetch' => 0], true);
-$unique = sizeof($mdb->getCollection("scopes")->distinct("corporationID", ['scope' => 'esi-killmails.read_corporation_killmails.v1', 'iterated' => true]));
+$unique = sizeof($mdb->distinct("scopes", "corporationID", ['scope' => 'esi-killmails.read_corporation_killmails.v1', 'iterated' => true]));
 $uqique = $esi->size();
 $redis->set("tqCorpApiESICount", $unique);
 
@@ -148,7 +148,7 @@ function addMail($killID, $hash)
     $exists = $mdb->exists('crestmails', ['killID' => $killID, 'hash' => $hash]);
     if (!$exists) {
         try {
-            $mdb->getCollection('crestmails')->save(['killID' => (int) $killID, 'hash' => $hash, 'processed' => false]);
+            $mdb->insert('crestmails', ['killID' => (int) $killID, 'hash' => $hash, 'processed' => false]);
             return 1;
         } catch (MongoDuplicateKeyException $ex) {
             // ignore it *sigh*

@@ -12,7 +12,7 @@ foreach ($invNames as $row) {
 }
 $invNames = null;
 
-$map = $mdb->getCollection('locations')->find();
+$map = $mdb->find("locations");
 foreach ($map as $system) {
     foreach ($system['locations'] as $row) {
         $name = $row['itemname'];

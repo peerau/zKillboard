@@ -10,7 +10,7 @@ if ($redis->get("zkb:420prone") == "true") exit();
 $queueWars = new RedisQueue('queueWars');
 
 if ($queueWars->size() == 0 && $redis->get("zkb:iterateWars") != "true") {
-    $wars = $mdb->getCollection('information')->find(['type' => 'warID']);
+    $wars = $mdb->find('information', ['type' => 'warID']);
     foreach ($wars as $war) {
         if (@$war['finished'] == true) continue;
         $queueWars->push($war['id']);

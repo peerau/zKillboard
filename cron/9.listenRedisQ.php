@@ -10,9 +10,10 @@ global $listenRedisQ;
 if ($listenRedisQ == null || $listenRedisQ == false) {
     exit();
 }
+var_dump($listenRedisQ);
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'http://redisq.zkillboard.com/listen.php');
+curl_setopt($ch, CURLOPT_URL, 'https://redisq.zkillboard.com/listen.php');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 $minute = date('Hi');
@@ -34,6 +35,7 @@ while ($minute == date('Hi')) {
 
     $hash = $killmail['zkb']['hash'];
     if (!$mdb->exists('crestmails', ['killID' => $killID, 'hash' => $hash])) {
+echo "$killID $hash\n";
         $mdb->save('crestmails', ['killID' => $killID, 'hash' => $hash, 'processed' => false]);
     }
 }
@@ -42,6 +44,7 @@ curl_close($ch);
 
 function checkFilter($killmail)
 {
+return true;
     global $characters, $corporations, $alliances;
 
     if (sizeof($characters) == 0 && sizeof($corporations) == 0 && sizeof($alliances) == 0) {

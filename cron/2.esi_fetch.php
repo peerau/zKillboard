@@ -6,8 +6,6 @@ use cvweiss\redistools\RedisTtlCounter;
 require_once "../init.php";
 
 $guzzler = new Guzzler(20);
-$esimails = $mdb->getCollection("esimails");
-
 $mdb->set("crestmails", ['processed' => 'fetching'], ['processed' => false], true);
 
 $count = 0;
@@ -26,9 +24,10 @@ while ($minute == date("Hi")) {
         }
 
         $mdb->set("crestmails", $row, ['processed' => 'fetching']);
-        $guzzler->call("$esiServer/v1/killmails/$killID/$hash/", "success", "fail", ['row' => $row, 'mdb' => $mdb, 'redis' => $redis, 'killID' => $killID, 'esimails' => $esimails]);
+        $guzzler->call("$esiServer/v1/killmails/$killID/$hash/", "success", "fail", ['row' => $row, 'mdb' => $mdb, 'redis' => $redis, 'killID' => $killID]);
         $count++;
     }
+        $guzzler->tick();
     if (sizeof($rows) == 0) {
         $guzzler->tick();
         sleep(1);
@@ -67,11 +66,10 @@ function success(&$guzzler, &$params, &$content) {
     $mdb = $params['mdb'];
     $row = $params['row'];
 
-    $esimails = $params['esimails'];
     $doc = json_decode($content, true);
 
     try {
-        $esimails->insert($doc);
+			$mdb->insert("esimails", $doc);
     } catch (Exception $ex) {
         // argh
     }

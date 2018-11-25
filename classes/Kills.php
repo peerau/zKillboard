@@ -84,7 +84,7 @@ class Kills
     public static function getSqlite()
     {
         if (self::$sqldb == null) {
-            self::$sqldb = new SQLite3("/home/kmstorage/sqlite/esi_killmails.sqlite");
+            self::$sqldb = new SQLite3("/var/www/zkillboard.com/data/esi_killmails.sqlite");
             self::$sqldb->busyTimeout(30000);
         }
         return self::$sqldb;

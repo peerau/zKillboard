@@ -116,7 +116,14 @@ class Guzzler
                     //Log::log($params['uri'] . " $code" . ($params['content'] != '' ? "\n" . $params['content'] : ''));
                     $rejected($guzzler, $params, $connectionException);
                 }
-            });
+            })->then(
+    function ($someVal) {
+
+    },
+    function (RequestException $e) {
+print_r($ex);
+        // now the above thrown Exception should be passed in here
+    });
         $this->inc();
     }
 

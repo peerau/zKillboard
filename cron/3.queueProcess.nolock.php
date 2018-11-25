@@ -24,10 +24,7 @@ $redis->expire("zkb:loot:red:$dateToday", 86400);
 $redis->expire("zkb:loot:green:$dateYesterday", 86400);
 $redis->expire("zkb:loot:red:$dateYesterday", 86400);
 
-$crestmails = $mdb->getCollection('crestmails');
-$killmails = $mdb->getCollection('killmails');
 $queueInfo = new RedisQueue('queueInfo');
-$storage = $mdb->getCollection('storage');
 
 $counter = 0;
 $minute = date('Hi');
@@ -61,7 +58,7 @@ while ($minute == date('Hi')) {
         $date = substr($mail['killmail_time'], 0, 19);
         $date = str_replace('.', '-', $date);
 
-        $kill['dttm'] = new MongoDate(strtotime($date . " UTC"));
+        $kill['dttm'] = new \MongoDB\BSON\UTCDateTime(strtotime($date . " UTC"));
 
         $systemID = (int) $mail['solar_system_id'];
         $system = Info::getInfo('solarSystemID', $systemID);
@@ -126,8 +123,10 @@ while ($minute == date('Hi')) {
         $kill['zkb'] = $zkb;
 
         saveMail($mdb, 'killmails', $kill);
-        if ($kill['dttm']->sec >= $date7Days) saveMail($mdb, 'oneWeek', $kill);
-        if ($kill['dttm']->sec >= $date90Days) saveMail($mdb, 'ninetyDays', $kill);
+				$datetime = $kill['dttm']->toDateTime();
+				$timestamp = floor($datetime->getTimestamp() / 1000);
+        if ($timestamp >= $date7Days) saveMail($mdb, 'oneWeek', $kill);
+        if ($timestamp >= $date90Days) saveMail($mdb, 'ninetyDays', $kill);
 
         $queueInfo->push($killID);
         $redis->incr('zkb:totalKills');
@@ -146,7 +145,7 @@ function saveMail($mdb, $collection, $kill)
     do {
         try {
             if ($mdb->exists($collection, ['killID' => $kill['killID']])) return;
-            $mdb->getCollection($collection)->save($kill);
+            $mdb->insert($collection, $kill);
             $error = false; 
         } catch (MongoDuplicateKeyException $ex) {
             return;
