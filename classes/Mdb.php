@@ -95,6 +95,11 @@ class Mdb
 		}
 	}
 
+	public function distinct($collection, $field, $query)
+	{
+		return $this->getCollection($collection)->distinct("corporationID", ['scope' => 'esi-killmails.read_corporation_killmails.v1', 'iterated' => true]);
+	}
+
 	public function save($collection, $document)
 	{
 		$sem = sem_get(3173);
@@ -336,16 +341,18 @@ class Mdb
 		// Prep the cursor
 		$mdb = new self();
 		$collection = $mdb->getCollection($collection);
+		print_r($collection); die();
 		// Execute the query
-print_r($pipeline);
 		$result = $collection->aggregate($pipeline);
+		var_dump($result);
+		die();
 		$result = $result->toArray();
 print_r($result);
 
 		foreach ($result as $row) {
 print_r($row);
 			if ($row['ok'] == 1) return $row['result'];
-break;
+die("has result\n");
 		}
 		throw new Exception('pipeline query failure');
 	}

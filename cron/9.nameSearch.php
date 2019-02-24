@@ -6,12 +6,12 @@ use cvweiss\redistools\RedisTimeQueue;
 
 global $mdb, $redis;
 
-$key = "autocomplete:" . date('YmdH');
+$key = "zkb:autocomplete:" . date('YmdH');
 if ($redis->get($key) == true) {
     exit();
 }
 
-$entities = $mdb->getCollection('information')->find([], ['sort' => ['type' => 1]]);
+$entities = $mdb->find("information");
 
 $toMove = [];
 
@@ -23,12 +23,6 @@ foreach ($entities as $entity) {
     $type = $entity['type'];
     $id = $entity['id'];
     $name = @$entity['name'];
-    if ($name == '') {
-        continue;
-    }
-    if (strpos($name, '!') !== false) {
-        continue;
-    }
 
     $isShip = false;
     $flag = '';
@@ -62,6 +56,9 @@ foreach ($entities as $entity) {
             $name = "$name ($regionName)";
             break;
     }
+
+    if ($name == '') continue;
+    if (strpos($name, '!') !== false) continue;
 
     if (!$isShip) {
         $setKey = "s:search:$type";

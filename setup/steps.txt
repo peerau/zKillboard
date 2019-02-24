@@ -1,0 +1,8 @@
+apt install build-essentials php-pear redis-server zip unzip php-dev mongodb-server php-redis php-curl
+
+pecl install mongodb
+
+composer update
+
+php addIndexes.php
+php addItems.php
