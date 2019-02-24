@@ -158,16 +158,16 @@
         },
         {
             "name": "dg/twitter-php",
-            "version": "v3.7",
+            "version": "v3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dg/twitter-php.git",
-                "reference": "d8bb9f21dfc31d06641ee60c04f2850b4d4801b5"
+                "reference": "d9370c9759138200a77ca86abcb0c5ddfe857c68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dg/twitter-php/zipball/d8bb9f21dfc31d06641ee60c04f2850b4d4801b5",
-                "reference": "d8bb9f21dfc31d06641ee60c04f2850b4d4801b5",
+                "url": "https://api.github.com/repos/dg/twitter-php/zipball/d9370c9759138200a77ca86abcb0c5ddfe857c68",
+                "reference": "d9370c9759138200a77ca86abcb0c5ddfe857c68",
                 "shasum": ""
             },
             "require": {
@@ -196,7 +196,7 @@
                 "oauth",
                 "twitter"
             ],
-            "time": "2018-03-15T10:07:08+00:00"
+            "time": "2019-02-08T16:20:01+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -763,7 +763,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "email": "BackEndTea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",

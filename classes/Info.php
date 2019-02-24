@@ -48,10 +48,10 @@ class Info
                 break;
         }
 
-        $multi = $redis->multi();
-        $multi->hMSet($redisKey, $data);
-        $multi->expire($redisKey, 7200);
-        $multi->exec();
+        //$multi = $redis->multi();
+        //$multi->hMSet($redisKey, $data);
+        //$multi->expire($redisKey, 7200);
+        //$multi->exec();
 
         return $data;
     }

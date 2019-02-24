@@ -35,6 +35,7 @@ function beSocial($killID)
     if ($noTweet) {
         return;
     }
+return;
 
     Info::addInfo($victimInfo);
 

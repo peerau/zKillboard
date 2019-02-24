@@ -18,6 +18,7 @@ $queueRedisQ = new RedisQueue('queueRedisQ');
 $minute = date('Hi');
 while (date('Hi') == $minute) {
     $killID = $queueRedisQ->pop();
+continue;
     if ($killID == null) {
         sleep(1);
         continue;

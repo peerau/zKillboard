@@ -6,7 +6,6 @@ MongoCursor::$timeout = -1;
 
 $today = date('Ymd', time() - (3600 * 4));
 
-//$types = array_values($mdb->getCollection("information")->distinct("type"));
 $types = [        "allianceID",
         "characterID",
         "constellationID",

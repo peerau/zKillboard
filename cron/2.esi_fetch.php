@@ -5,7 +5,7 @@ use cvweiss\redistools\RedisTtlCounter;
 
 require_once "../init.php";
 
-$guzzler = new Guzzler(20);
+$guzzler = new Guzzler(5);
 $esimails = $mdb->getCollection("esimails");
 
 $mdb->set("crestmails", ['processed' => 'fetching'], ['processed' => false], true);

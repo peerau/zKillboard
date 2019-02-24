@@ -1,6 +1,7 @@
 <?php
 
 require_once "../init.php";
+exit();
 
 if (date('Hi') != "1100") exit();
 

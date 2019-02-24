@@ -14,6 +14,7 @@ $minute = date('Hi');
 while ($minute == date('Hi')) {
     $killID = $queueApiCheck->pop();
     if ($killID > 0) {
+	continue;
         $killmail = $mdb->findDoc("killmails", ['killID' => $killID]);
 
         // Only do this for recent killmails

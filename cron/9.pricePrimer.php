@@ -1,6 +1,7 @@
 <?php
 
 require_once '../init.php';
+exit();
 
 global $primePrices;
 
@@ -13,7 +14,7 @@ $key = "tq:pricesChecked:$date";
 
 // Market region history endpoint is refreshed at 11:05 daily
 // We'll wait a few minutes then start pulling
-if ($redis->get($key) == "true" || date('Hi') < 1115) exit();
+//if ($redis->get($key) == "true" || date('Hi') < 1115) exit();
 
 $guzzler = new Guzzler(10, 10);
 $guzzler->call("$esiServer/v1/markets/groups/", "groupsSuccess", "fail");

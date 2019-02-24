@@ -84,7 +84,7 @@ class Kills
     public static function getSqlite()
     {
         if (self::$sqldb == null) {
-            self::$sqldb = new SQLite3("/home/kmstorage/sqlite/esi_killmails.sqlite");
+            self::$sqldb = new SQLite3("/var/www/zkillboard.com/sqlite/esi_killmails.sqlite");
             self::$sqldb->busyTimeout(30000);
         }
         return self::$sqldb;
@@ -96,12 +96,12 @@ class Kills
 
         $killID = (int) $killID;
         $esimail = $mdb->findDoc("esimails", ['killmail_id' => $killID]);
-        if ($esimail == null) {
+        /*if ($esimail == null) {
             $db = self::getSqlite();
             $results = $db->query("SELECT mail FROM killmails where killmail_id = $killID");
             $row = $results->fetchArray(SQLITE3_ASSOC);
             $esimail = json_decode(@$row['mail'], true);
-        }
+        }*/
         return $esimail;
     }
 

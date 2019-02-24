@@ -167,7 +167,6 @@ class Stats
         $pipeline[] = ['$group' => ['_id' => 'total', 'value' => ['$sum' => 1]]];
 
         $result = $mdb->getCollection('oneWeek')->aggregateCursor($pipeline);
-        $result->timeout(-1);
         $result = iterator_to_array($result);
 
         $time = $timer->stop();
