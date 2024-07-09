@@ -106,47 +106,82 @@ class Price
         // Some typeID's have hardcoded prices
         switch ($typeID) {
             case 12478: // Khumaak
-            case 34559: // Conflux Element
-                return 0.01; // Items that get market manipulated and abused will go here
             case 44265: // Victory Firework
-                return 0.01; // Items that drop from sites will go here
+            case 44264: // Pulsar Flare Firework
 
-            // Items that have been determined to be obnoxiously market
-            // manipulated will go here
-            case 55511:
-                return 30000000;
-            case 34558:
+            case 34558: // Drifter elements
             case 34556:
             case 34560:
             case 36902:
-            case 34559:
             case 34557:
-            case 44264:
                 return 0.01;
+		
+            // Items that have been determined to be obnoxiously market
+            // manipulated will go here
+            case 55511: // Vorton Arc Extension
+                return 30_000_000;
+            
+            // Faction Capitals
+                // Guristas
             case 45645: // Loggerhead
-                return 35000000000; // 35b
+                return 35_000_000_000; // 35b
+            case 45647: // Caiman
+                return 60_000_000_000; // 60b 
+            case 45649: // Komodo
+                return 200_000_000_000; // 200b
+            
+            // Blood Raiders
             case 42243: // Chemosh
-                return 70000000000;  // 70b
+                return 70_000_000_000; // 70b
+            case 42242: // Dagon
+                return 35_000_000_000; // 35b
+            case 42241: // Molok
+                if ($date <= "2019-07-01") return 350_000_000_000; // 350b 
+                return 650_000_000_000;
+            
+            // Serpentis
+            case 42124: // Vehement
+                return 55_000_000_000; // 55b
+            case 42125: // Vendetta
+                if ($date <= "2024-07-09") return 120_000_000_000; // 120b
+                return 210_000_000_000; // 210b
+            case 42126: // Vanquisher
+                return 650_000_000_000; // 650b
+            
+            // Angel
+            case 78576: // Azariel
+                return 750_000_000_000; // 750b
+            
+            // Sanshas
+            case 3514: // Revenant
+                if ($date <= "2023-12-01") return 100_000_000_000; // 100b
+                return 250_000_000_000; // 250b
+
+            // CCP Ships
+            case 9860: // Polaris
+            case 11019: // Cockroach
+                return 1_000_000_000_000; // 1t
+
+            // Rare Structures
+            case 47512: // 'Moreau' Fortizar
+            case 47514: // 'Horizon' Fortizar
+                return 60_000_000_000; // 60b 
+                
+            // AT Ships
             case 2834: // Utu
             case 3516: // Malice
             case 11375: // Freki
-                return 80000000000; // 80b
-            case 3514: // Revenant
-		        if ($date <= "2023-12-01") 
-                    return 100000000000; // 100b
-                return 250000000000; // 100b
+                return 80_000_000_000; // 80b
             case 3518: // Vangel
             case 32788: // Cambion
             case 32790: // Etana
             case 32209: // Mimir
-            case 11942: // Silver Magnate
             case 33673: // Whiptail
-                return 100000000000; // 100b
+                return 100_000_000_000; // 100b
             case 35779: // Imp
-            case 42125: // Vendetta
             case 42246: // Caedes
             case 74141: // Geri
-                return 120000000000; // 120b
+                return 120_000_000_000; // 120b
             case 2836: // Adrestia
             case 33675: // Chameleon
             case 35781: // Fiend
@@ -155,48 +190,36 @@ class Price
             case 60765: // Raiju
             case 74316: // Bestla
             case 78414: // Shapash
-                return 150000000000; // 150b
+                return 150_000_000_000; // 150b
             case 33397: // Chremoas
             case 42245: // Rabisu
-            case 45649: // Komodo
-                return 200000000000; // 200b
+                return 200_000_000_000; // 200b
             case 45531: // Victor
-                return 230000000000; // 230b
             case 48635: // Tiamat
             case 60764: // Laelaps
             case 77726: // Cybele
-                return 230000000000;
-            case 47512: // 'Moreau' Fortizar
-            case 45647: // Caiman
-                return 60000000000; // 60b 
-            case 9860: // Polaris
-            case 11019: // Cockroach
-                return 1000000000000; // 1 trillion, rare dev ships
-            case 42126: // Vanquisher
-                return 650000000000;
-            case 42241: // Molok
-                if ($date <= "2019-07-01") return 350000000000; // 350b 
-                return 650000000000;
-            // Rare cruisers
+                return 230_000_000_000; // 230b
+
+            // Rare ships
+            case 11942: // Silver Magnate
+                return 100_000_000_000; // 100b
             case 11940: // Gold Magnate
-		    if ($date <= "2020-01-25") return 500000000; // 500b
-		    return 3400000000000;	// 3.2t
+                if ($date <= "2020-01-25") return 500_000_000_000; // 500b
+                return 3_400_000_000_000;	// 3.4t
             case 635: // Opux Luxury Yacht
             case 11011: // Guardian-Vexor
             case 25560: // Opux Dragoon Yacht
             case 33395: // Moracha
-                return 500000000000; // 500b
-                // Rare battleships
+                return 500_000_000_000; // 500b
+            
+            // Rare battleships
             case 13202: // Megathron Federate Issue
             case 11936: // Apocalypse Imperial Issue
             case 11938: // Armageddon Imperial Issue
             case 26842: // Tempest Tribal Issue
-            case 78576: // Azariel (Angel Titan)
-                return 750000000000; // 750b
+                return 750_000_000_000; // 750b
             case 26840: // Raven State Issue
-                return 2500000000000; // 2.5t
-            case 47514: // 'Horizon' Fortizar
-                return 60000000000; // Too much market bugginess, hardcoding price
+                return 2_500_000_000_000; // 2.5t
         }
 
         // Some groupIDs have prices based on their group
